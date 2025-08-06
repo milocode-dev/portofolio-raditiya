@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+}
+
+.contaner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;     /* Horizontal: tengah */
+  align-items: center;         /* Vertikal: tengah */
+  height: 100vh;               /* Bikin tinggi 1 layar penuh */
+  gap: 50px;                   /* Jarak antara teks & gambar */
+  padding: 0 40px;
+  background-color: gray;
+}
+
+.hero-desc {
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.hero-picture img {
+  max-height: 400px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #008cff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #005fc1;
+}
+
+
+.card-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  gap: 70px; /* jarak antar card */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.sosmed {
+  margin-top: 10px;
+}
+
+.sosmed a {
+  margin: 0 10px;
+  display: inline-block;
+  color: white;
+}
+
+.sosmed i {
+  stroke: white;
+  width: 24px;
+  height: 24px;
+}
+
