@@ -15,6 +15,7 @@ body {
   gap: 50px;                   /* Jarak antara teks & gambar */
   padding: 0 40px;
   background-color: gray;
+  background-image: linear-gradient(gray, white);
 }
 
 .hero-desc {
