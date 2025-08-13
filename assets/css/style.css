@@ -1,21 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    margin: 0;
+  background: #0D1117;
 }
 
-.contaner {
-    max-width: 960px;
-    margin: 0 auto;
+nav {
+  margin-top: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
 }
 
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.menu li a {
+  transition: all 0.3 ease 0s;
+}
+
+.menu li a:hover {
+  color: #005fc1;
+}
+
+.tittle {
+  cursor: pointer;
+}
+
+.tittle span {
+  color: #005fc1;
+}
 .hero {
   display: flex;
-  justify-content: center;     /* Horizontal: tengah */
-  align-items: center;         /* Vertikal: tengah */
-  height: 100vh;               /* Bikin tinggi 1 layar penuh */
-  gap: 50px;                   /* Jarak antara teks & gambar */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 50px;
   padding: 0 40px;
-  background-color: gray;
-  background-image: linear-gradient(gray, white);
 }
 
 .hero-desc {
@@ -23,10 +61,27 @@ body {
   border-radius: 10px;
   text-align: center;
   max-width: 400px;
+  color: white;
+}
+
+.hero-desc h1 {
+  font-size: 3.5rem;
+}
+
+.hero-desc h2 {
+  font-size: 2.8rem;
+}
+
+.hero-desc p {
+  font-size: 1.2rem;
+}
+
+.hero-desc span {
+  color: #005fc1;
 }
 
 .hero-picture img {
-  max-height: 400px;
+  max-height: 500px;
   width: auto;
   border-radius: 10px;
 }
@@ -34,37 +89,172 @@ body {
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #008cff;
+  background-color: #005fc1;
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s;
+  transition: transform 0.3s;
 }
 
 .btn:hover {
   background-color: #005fc1;
+  transform: rotate(-3deg);
 }
 
+.card-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+}
+
+.card-photo img {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
 .card-info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  gap: 70px; /* jarak antar card */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .card {
-  background-color: #f0f0f0;
+  margin-top: 50px;
+  color: white;
+  background-color: #333;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative;
 }
 
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after, .card::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), transparent, blue);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 5px;
+  border-radius: 12px;
+  animation: 3s spin linear infinite;
+}
+
+.card::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from{
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+
+.projects {
+    padding: 50px;
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #FFD54F;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.skills {
+    padding: 50px;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #00E5FF;
+}
+
+.skill-list {
+    max-width: 500px;
+    margin: auto;
+}
+
+.skill {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.skill span {
+    display: block;
+    margin-left: 230px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #00E5FF;
+    transition: width 0.5s ease;
+}
+
+
 .footer {
+  margin-top: 150px;
   background-color: #333;
   color: white;
   text-align: center;
@@ -87,3 +277,59 @@ body {
   height: 24px;
 }
 
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .menu li {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .hero-picture img {
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .card-photo {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skill span {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    gap: 30px;
+    height: auto;
+  }
+
+  .card-info {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .skill span {
+    margin-left: 0;
+    text-align: center;
+  }
+}
